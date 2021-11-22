@@ -32,7 +32,7 @@ basic.showNumber(1)
 basic.showIcon(IconNames.Happy)
 basic.forever(function () {
     if (knapp_A) {
-        music.ringTone(988)
+        music.ringTone(494)
         for (let index = 0; index < 2; index++) {
             LED_höger.showColor(neopixel.colors(NeoPixelColors.Red))
             LED_vänster.showColor(neopixel.colors(NeoPixelColors.Blue))
@@ -41,7 +41,7 @@ basic.forever(function () {
             LED_vänster.showColor(neopixel.colors(NeoPixelColors.Red))
             basic.pause(150)
         }
-        music.ringTone(784)
+        music.ringTone(392)
         for (let index = 0; index < 2; index++) {
             LED_höger.showColor(neopixel.colors(NeoPixelColors.Red))
             LED_vänster.showColor(neopixel.colors(NeoPixelColors.Blue))
