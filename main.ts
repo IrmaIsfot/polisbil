@@ -1,7 +1,7 @@
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    music.setVolume(95)
+    music.setVolume(164)
     soundExpression.giggle.playUntilDone()
-    music.setVolume(23)
+    music.setVolume(19)
 })
 input.onButtonPressed(Button.A, function () {
     if (knapp_A) {
@@ -12,20 +12,16 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
-    basic.pause(1000)
-    for (let index = 0; index < 4; index++) {
-        RingbitCar.running_time(RingbitCar.Direction_run.forward, 1)
-        RingbitCar.steering_angle(RingbitCar.Direction_turn.right, 93)
-    }
-    RingbitCar.brake()
+    basic.pause(600)
+    RingbitCar.steering_angle(RingbitCar.Direction_turn.right, 360)
 })
 let Sluta = false
 let knapp_A = false
 RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
-let strip = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
-let LED_höger = strip.range(0, 1)
-let LED_vänster = strip.range(1, 1)
-music.setVolume(23)
+let Lysdioder = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
+let LED_höger = Lysdioder.range(0, 1)
+let LED_vänster = Lysdioder.range(1, 1)
+music.setVolume(19)
 basic.showNumber(3)
 basic.showNumber(2)
 basic.showNumber(1)
