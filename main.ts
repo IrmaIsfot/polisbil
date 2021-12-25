@@ -3,6 +3,50 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
     soundExpression.giggle.playUntilDone()
     music.setVolume(19)
 })
+radio.onReceivedNumber(function (receivedNumber) {
+    Styrkod = receivedNumber
+    if (Styrkod == 1) {
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            # . # . #
+            . # # # .
+            . . # . .
+            `)
+        RingbitCar.running_time(RingbitCar.Direction_run.forward, 1)
+    }
+    if (Styrkod == 2) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+        RingbitCar.steering_angle(RingbitCar.Direction_turn.right, 90)
+    }
+    if (Styrkod == 3) {
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # . # . #
+            . . # . .
+            . . # . .
+            `)
+        RingbitCar.running_time(RingbitCar.Direction_run.backward, 1)
+    }
+    if (Styrkod == 4) {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+        RingbitCar.steering_angle(RingbitCar.Direction_turn.left, 90)
+    }
+    basic.clearScreen()
+})
 input.onButtonPressed(Button.A, function () {
     if (knapp_A) {
         knapp_A = false
@@ -17,10 +61,13 @@ input.onButtonPressed(Button.B, function () {
 })
 let Sluta = false
 let knapp_A = false
+let Styrkod = 0
+radio.setGroup(1)
 RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
 let Lysdioder = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
 let LED_höger = Lysdioder.range(0, 1)
 let LED_vänster = Lysdioder.range(1, 1)
+Styrkod = 1
 music.setVolume(19)
 basic.showNumber(3)
 basic.showNumber(2)
