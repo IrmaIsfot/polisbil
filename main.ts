@@ -45,6 +45,22 @@ radio.onReceivedNumber(function (receivedNumber) {
             `)
         RingbitCar.steering_angle(RingbitCar.Direction_turn.left, 90)
     }
+    if (Styrkod == 5) {
+        basic.showLeds(`
+            . . . . .
+            . . # . .
+            . # . # .
+            . . # . .
+            . . . . .
+            `)
+        music.setVolume(150)
+        music.ringTone(988)
+        basic.pause(200)
+        music.stopAllSounds()
+        music.setVolume(19)
+    }
+    LED_höger.showColor(neopixel.colors(NeoPixelColors.Black))
+    LED_vänster.showColor(neopixel.colors(NeoPixelColors.Black))
     basic.clearScreen()
 })
 input.onButtonPressed(Button.A, function () {
@@ -62,11 +78,13 @@ input.onButtonPressed(Button.B, function () {
 let Sluta = false
 let knapp_A = false
 let Styrkod = 0
+let LED_vänster: neopixel.Strip = null
+let LED_höger: neopixel.Strip = null
 radio.setGroup(1)
 RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
 let Lysdioder = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
-let LED_höger = Lysdioder.range(0, 1)
-let LED_vänster = Lysdioder.range(1, 1)
+LED_höger = Lysdioder.range(0, 1)
+LED_vänster = Lysdioder.range(1, 1)
 Styrkod = 1
 music.setVolume(19)
 basic.showNumber(3)
