@@ -9,7 +9,7 @@ radio.onReceivedNumber(function (receivedNumber) {
         basic.showLeds(`
             . . # . .
             . . # . .
-            # . # . #
+            # . . . #
             . # # # .
             . . # . .
             `)
