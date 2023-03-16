@@ -68,7 +68,7 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.B, function () {
     basic.pause(600)
-    RingbitCar.steering_angle(RingbitCar.Direction_turn.right, 465)
+    RingbitCar.steering_angle(RingbitCar.Direction_turn.right, 360)
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.setVolume(164)
