@@ -1,3 +1,8 @@
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    music.setVolume(164)
+    soundExpression.giggle.playUntilDone()
+    music.setVolume(19)
+})
 radio.onReceivedNumber(function (receivedNumber) {
     Styrkod = receivedNumber
     if (Styrkod == 1) {
@@ -49,7 +54,7 @@ radio.onReceivedNumber(function (receivedNumber) {
             . . . . .
             `)
         music.setVolume(150)
-        music.ringTone(262)
+        music.ringTone(988)
         basic.pause(200)
         music.stopAllSounds()
         music.setVolume(19)
@@ -70,23 +75,11 @@ input.onButtonPressed(Button.B, function () {
     basic.pause(600)
     RingbitCar.steering_angle(RingbitCar.Direction_turn.right, 465)
 })
-input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    music.setVolume(164)
-    soundExpression.giggle.playUntilDone()
-    music.setVolume(19)
-})
 let Sluta = false
 let knapp_A = false
 let Styrkod = 0
 let LED_vänster: neopixel.Strip = null
 let LED_höger: neopixel.Strip = null
-basic.showLeds(`
-    . . . . .
-    . . # # .
-    . . . . .
-    . . . # .
-    . # . . .
-    `)
 radio.setGroup(1)
 RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
 let Lysdioder = neopixel.create(DigitalPin.P0, 2, NeoPixelMode.RGB)
@@ -100,7 +93,7 @@ basic.showNumber(1)
 basic.showIcon(IconNames.Happy)
 basic.forever(function () {
     if (knapp_A) {
-        music.ringTone(554)
+        music.ringTone(494)
         for (let index = 0; index < 2; index++) {
             LED_höger.showColor(neopixel.colors(NeoPixelColors.Red))
             LED_vänster.showColor(neopixel.colors(NeoPixelColors.Blue))
@@ -109,7 +102,7 @@ basic.forever(function () {
             LED_vänster.showColor(neopixel.colors(NeoPixelColors.Red))
             basic.pause(150)
         }
-        music.ringTone(415)
+        music.ringTone(392)
         for (let index = 0; index < 2; index++) {
             LED_höger.showColor(neopixel.colors(NeoPixelColors.Red))
             LED_vänster.showColor(neopixel.colors(NeoPixelColors.Blue))
